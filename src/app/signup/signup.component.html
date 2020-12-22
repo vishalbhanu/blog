@@ -1,0 +1,37 @@
+<div ng-app="myApp" ng-controller="myController" class="container" >
+  <div class='form-style '>
+      <h3>Sign Up</h3>
+      <br>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate >
+      <div  class="form-group" *ngIf="otherError" class="alert alert-danger text-center" style="padding-left: 0;">
+        {{errorMessage}}
+      </div>
+      <div *ngIf="successFlag" class="alert alert-success text-center" style="padding-left: 0;">
+        {{successMessage}}
+      </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" formControlName="name"   class="form-control" id="exampleInputname1" placeholder="Enter email">
+          <div *ngIf="signupForm.controls['name'].invalid && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="signupForm.controls['name'].errors.required" class="form-text text-muted">Name is required.</small>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" formControlName="email"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="signupForm.controls['email'].errors.required" class="form-text text-muted">Email Id is required.</small>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="pass"  id="exampleInputPassword1" placeholder="Password">
+          <div *ngIf="signupForm.controls['pass'].invalid && (signupForm.controls['pass'].dirty || signupForm.controls['pass'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="signupForm.controls['pass'].errors.required" class="form-text text-muted">Password Id is required.</small>
+          </div>
+        </div>
+        <button type="submit"  [disabled]="signupForm.pristine || signupForm.invalid"  class="btn btn-primary login-button">Submit</button>
+      </form>
+      <br>
+    </div>
+  </div>

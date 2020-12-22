@@ -1,0 +1,60 @@
+<div ng-app="myApp" ng-controller="myController" class="container" >
+  <div class='form-style '>
+    <!-- <div class='form-style border border-dark rounded-top rounded-bottom'> -->
+
+      <h3>Create Post</h3>
+      <br>
+      <form [formGroup]="CreatePostForm" (ngSubmit)="onSubmit()" novalidate >
+      <div  class="form-group" *ngIf="otherError" class="alert alert-danger text-center" style="padding-left: 0;">
+        {{errorMessage}}
+      </div>
+      <div *ngIf="successFlag" class="alert alert-success text-center" style="padding-left: 0;">
+        {{successMessage}}
+      </div>
+        <div class="form-group">
+          <label for="title">title</label>
+          <input type="title" formControlName="title"   class="form-control" id="exampleInputtitle1" aria-describedby="titleHelp" placeholder="Enter title">
+          <div *ngIf="CreatePostForm.controls['title'].invalid && (CreatePostForm.controls['title'].dirty || CreatePostForm.controls['title'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="CreatePostForm.controls['title'].errors.required" class="form-text text-muted">title  is required.</small>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="subtitle">subtitle</label>
+          <input type="subtitle" formControlName="subtitle"   class="form-control" id="exampleInputsubtitle1" aria-describedby="subtitleHelp" placeholder="Enter subtitle">
+          <div *ngIf="CreatePostForm.controls['subtitle'].invalid && (CreatePostForm.controls['subtitle'].dirty || CreatePostForm.controls['subtitle'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="CreatePostForm.controls['subtitle'].errors.required" class="form-text text-muted">subtitle  is required.</small>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="tagsData">tags</label>
+          <input type="tagsData" formControlName="tagsData"   class="form-control" id="exampleInputtagsData1" aria-describedby="tagsDataHelp" placeholder="Enter tagsData">
+          <div *ngIf="CreatePostForm.controls['tagsData'].invalid && (CreatePostForm.controls['tagsData'].dirty || CreatePostForm.controls['tagsData'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="CreatePostForm.controls['tagsData'].errors.required" class="form-text text-muted">tags  is required.</small>
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="content">content</label>
+          <input type="content" formControlName="content"   class="form-control" id="exampleInputcontent1" aria-describedby="contentHelp" placeholder="Enter content">
+          <div *ngIf="CreatePostForm.controls['content'].invalid && (CreatePostForm.controls['content'].dirty || CreatePostForm.controls['content'].touched)" class="alert alert-danger form-error">
+            <small *ngIf="CreatePostForm.controls['content'].errors.required" class="form-text text-muted">content  is required.</small>
+           </div>
+        </div>
+        <button type="submit"  [disabled]="CreatePostForm.pristine || CreatePostForm.invalid"  class="btn btn-primary login-button">Submit</button>
+      </form>
+    </div>
+    <div>
+      <ul style="list-style-type:none;">
+      <li *ngFor="let item of successMessageData;" >
+      <div style="border:solid black">
+
+      <center><p>title:- {{item.title}} - <button type="button" name="button" value="item.id" (click)="editData(item.id)">Edit</button></p></center>
+      <p>sub_title:- {{item.sub_title}}</p>
+      <p>tags:- {{item.tags}}</p>
+      <p>Content:- {{item.content}}</p>
+      </div>
+      <br/>
+      <br/>
+      </li>
+      </ul>
+    </div>
+  </div>

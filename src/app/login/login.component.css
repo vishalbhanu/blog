@@ -1,0 +1,38 @@
+.error{
+  color: red;
+  font-size: 12px;
+  width: auto;
+}
+.form-error{
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.form-style{
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+}
+.login-button{
+  width: 100%;
+}
+.text-center {
+	text-align:center;
+}
+
+.divider hr {
+	margin-left:auto;
+	margin-right:auto;
+	width:30%;
+
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}

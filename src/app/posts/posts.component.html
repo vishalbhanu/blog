@@ -1,0 +1,20 @@
+<p>Posts</p>
+
+<select name="selectedTag" id="tag" class="form-control" ngModel (change)="changeTag($event.target.value)" >
+<option *ngFor="let item of tagDAta;" [value]="item.tags"   >{{item.tags}}
+</option>
+</select>
+<br>
+<a href="createupdatepost" value="Create and Update Posts here">Create and Update Posts here</a>
+<ul style="list-style-type:none;">
+<li *ngFor="let item of successMessage;" >
+<div style="border:solid black">
+<center><p>title:- {{item.title}}</p></center>
+<p>sub_title:- {{item.sub_title}}</p>
+<p>tags:- {{item.tags}}</p>
+<p>Content:- {{item.content}}</p>
+</div>
+<br/>
+<br/>
+</li>
+</ul>
